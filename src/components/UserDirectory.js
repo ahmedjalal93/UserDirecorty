@@ -44,7 +44,6 @@ class UserDirectory extends Component {
   };
 
   render() {
-    {console.log(this.state.result)}
     return (
         <Container>
           <Row>
