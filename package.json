@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "npm": "5.7.1",
-    "node": "9.5.0"
+    "npm": "6.14.4",
+    "node": "13.14.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
@@ -36,5 +36,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "An application for searching user directory",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedjalal93/UserDirecorty.git"
+  },
+  "author": "Ahmed Janpm installlal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedjalal93/UserDirecorty/issues"
+  },
+  "homepage": "https://github.com/ahmedjalal93/UserDirecorty#readme"
 }
