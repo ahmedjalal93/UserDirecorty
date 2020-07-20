@@ -15,9 +15,7 @@ function Table(props) {
         </thead>
         <tbody>
             {props.data.map((item, index) => {
-              item.name = item.name.first + " " + item.name.last;
-              item.cell = item.cell.replace(/\(|\)/gi, "");
-              return (<List key={index} picture={item.picture.medium} name={item.name} email={item.email} cell={item.cell} dob={item.dob.date.substring(0, item.dob.date.indexOf("T"))} />)
+              return (<List key={index} picture={item.picture.medium} name={`${item.name.first} ${item.name.last}`} email={item.email} cell={item.cell} dob={item.dob.date.substring(0, item.dob.date.indexOf("T"))} />)
             }
             )}
         </tbody>

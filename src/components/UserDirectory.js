@@ -13,32 +13,35 @@ class UserDirectory extends Component {
     search: ""
   };
 
-  // When this component mounts, search for the movie "The Matrix"
   componentDidMount() {
-    this.searchUsers("");
+    API.list()
+      .then(res => this.setState({ 
+        result: res.data.results,
+        users:res.data.results
+      })
+    ).catch(err => console.log(err));
   }
 
   searchUsers = query => {
-    API.search(query)
-      .then(res => this.setState({ 
-        result: res.data.results
-      })
-    ).catch(err => console.log(err));
+    const users = this.state.users;
+    const filtered = [];
+    for(let i in users){
+      let name = users[i].name.first + users[i].name.last;
+      if(name.includes(query) || users[i].email.includes(query) || users[i].cell.includes(query) || users[i].dob.date.includes(query) ){
+        filtered.push(users[i])
+      }
+    }
+    this.setState({ 
+      result: filtered
+    })
   };
 
   handleInputChange = event => {
-    const value = event.target.value;
-    const name = event.target.name;
-    console.log(value)
+    const {name, value} = event.target;
+    this.searchUsers(value)
     this.setState({
       [name]: value
     });
-  };
-
-  // When the form is submitted, search the OMDB API for the value of `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    this.searchUsers(this.state.search);
   };
 
   render() {
@@ -46,6 +49,9 @@ class UserDirectory extends Component {
         <Container>
           <Row>
             <Col size="md-12">
+              <SearchForm 
+                value={this.state.search}
+                handleInputChange={this.handleInputChange} />
               <Table data={this.state.result}/>
             </Col>
           </Row>
