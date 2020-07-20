@@ -25,8 +25,8 @@ class UserDirectory extends Component {
     const users = this.state.users;
     const filtered = [];
     for(let i in users){
-      let name = users[i].name.first + " " + users[i].name.last;
-      console.log(name);
+      let name = users[i].name.first.toLowerCase() + " " + users[i].name.last.toLowerCase();
+      console.log("name " + name + " query " + query);
       if(name.includes(query) || users[i].email.includes(query) || users[i].cell.includes(query) || users[i].dob.date.includes(query) ){
         filtered.push(users[i])
       }
