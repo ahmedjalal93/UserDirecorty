@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Container from "./Container";
 import Row from "./Row";
 import Col from "./Col";
-import List from "./List";
 import SearchForm from "./SearchForm";
 import Table from "./Table";
 import API from "../utils/API";
@@ -45,6 +44,7 @@ class UserDirectory extends Component {
   };
 
   render() {
+    {console.log(this.state.result)}
     return (
         <Container>
           <Row>
